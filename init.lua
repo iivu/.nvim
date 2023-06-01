@@ -5,6 +5,7 @@ Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline-themes'
 vim.call('plug#end')
 
 vim.o.number = true
