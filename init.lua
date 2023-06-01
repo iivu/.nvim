@@ -40,8 +40,16 @@ vim.g.mapleader = ','
 map('n', '<leader>g', ':NERDTreeToggle<cr>')
 map('n', '<leader>v', ':NERDTreeFind<cr>')
 map('n', '<leader>t', ':TagbarToggle<cr>')
+map('n', '<c-j>', '<c-w>j')
+map('n', '<c-k>', '<c-w>k')
+map('n', '<c-h>', '<c-w>h')
+map('n', '<c-l>', '<c-w>l')
 
 -- coc.vim
+function _G.check_back_space()
+    local col = vim.fn.col('.') - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+end
 local cocOpts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
 keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#confirm() : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', cocOpts)
 keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], cocOpts)
